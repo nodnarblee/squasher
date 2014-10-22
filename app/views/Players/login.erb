@@ -1,0 +1,23 @@
+<% if @player && @player.errors.any? %>
+  <div>
+    <strong>Username not found, please fix errors and try again.</strong>
+    <ul>
+      <% @player.errors.full_messages.each do |player| %>
+        <li><%= player %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form method = "post" action ="/login">
+  <div>
+  <h1> Please Login Here! </h1>
+  </div>
+  <div>
+    <label>Email:</label>
+    <input type="text" name="name">
+  </div>
+  <div>
+    <input type="submit" value="Login">
+  </div>
+</form>
