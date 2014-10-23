@@ -33,7 +33,7 @@ get '/login' do
 end
 
 post '/login' do
-  @player = Player.find_by email:(params:[:email])
+  @player = Player.find_by email:(params[:email])
   session[:id] = @player.id
 end  
 
