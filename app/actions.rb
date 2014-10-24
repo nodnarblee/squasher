@@ -33,10 +33,13 @@ helpers do
     #11 points to win a game as long as the winning point is at least 11 and greater than opponents points by 2 for that particular game
 
     true if (@player1.points == @win && @player1.points > (@player2.points + 2))
+  end    
 
-  end 
+  def current_player
+    return Player.find(session[:id]) if session[:id]
+  end
 
-end  
+end 
 
 # Homepage (Root path)
 get '/' do
@@ -64,8 +67,8 @@ end
 
 post '/login' do
   @player = Player.find_by email:(params[:email])
-  session[:id] = @player.id
-end  
+end
+
 
 ###LOGOUT 
 get '/logout' do 
