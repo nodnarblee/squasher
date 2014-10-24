@@ -1,0 +1,19 @@
+<h1>start match here</h1>
+
+<form method="post" action="/match/create">
+    <select name="player1">
+    	<% @players.each do |player| %>
+
+    	<option value = "<%= player.id %>"><%= player.first_name %></option>
+		<% end %>
+	</select>
+
+    <select name="player2">
+    	<% @players.each do |player| %>
+
+    	<option value = "<%= player.id %>"><%= player.first_name %></option>
+		<% end %>
+	</select>
+	<button type="submit">Submit</button>
+</form>
+

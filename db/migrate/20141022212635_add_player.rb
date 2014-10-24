@@ -6,6 +6,11 @@ class AddPlayer < ActiveRecord::Migration
   		t.string :email
   		t.string :password
   		t.string :right_left_handed
+  		has_many :matches
+  		has_many :games, through: :matches
+  		has_many :rallies, through: :games
+  		has_many :events, through: :games
+  		
   		t.timestamps
   	end
   end
