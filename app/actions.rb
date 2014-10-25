@@ -6,10 +6,17 @@ helpers do
     return Player.find(session[:id]) if session[:id]
   end
 
-  def add_point
-    @player = Player.find_by_name(params[:name])
-    @player.points += 1
+  def add_point #rally 
+    @player = Player.find_by_first_name(params[:first_name])
+    @rally = Rally.new(
+    player_id: @player.id
+    )
+      if @rally.save
+        redirect '/'
+      end
   end 
+
+  ##match 
 
   def set_player_1
     current_player = @player1 
@@ -35,14 +42,11 @@ helpers do
     true if (@player1.points == @win && @player1.points > (@player2.points + 2))
   end    
 
-  def current_player
-    return Player.find(session[:id]) if session[:id]
-  end
-
 end 
 
 # Homepage (Root path)
 get '/' do
+   @players = Player.all
   erb :index
 end
 
@@ -54,10 +58,15 @@ end
 post '/signup' do 
   @player = Player.new(
     email: params[:email],
-    first_name: params[:first_name],
-    last_name: params[:last_name],
-    password: params[:password])
-  erb :'players/signup'
+    first_name: params[:firstname],
+    last_name: params[:lastname],
+    password: params[:password]
+    )
+    if @player.save
+      redirect '/login'
+    else  
+      erb :'/login'
+    end 
 end 
 
 
@@ -68,18 +77,14 @@ end
 
 post '/login' do
   @player = Player.find_by email:(params[:email])
+  sessions[:id] = @player.id
+  redirect '/'
 end
 
-
-# ###LOGIN 
-# get '/login' do
-#   erb :'players/login'
-# end
-
-# post '/login' do
-#   @player = Player.find_by email:(params:[:email])
-#   session[:id] = @player.id
-# end  
+###ADD POINT
+post '/' do 
+  add_point
+end 
 
 
 ###LOGOUT 
@@ -99,6 +104,7 @@ end
 
 get '/match/:id' do
   @players = Player.all
+  @rally = Rally.all
   erb :'matches/show'
 end
 
@@ -112,10 +118,10 @@ end
 post '/player1' do
    input = params[:player]
    @player1 =  Player.find(params[:input])
-  
 end
+
 post '/player2' do
    input = params[:player]
    @player2 =  Player.find(params[:input])
-  
+   
 end
