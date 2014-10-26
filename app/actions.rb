@@ -1,19 +1,29 @@
+require 'pry'
 enable :sessions
 
 helpers do 
 
-  def session_user
-    return Player.find(session[:id]) if session[:id]
-  end
+  # def session_user
+  #   return Player.find(session[:id]) if session[:id]
+  # end
 
-  def add_point #rally 
-    @match = Match.all
-    @rally = Rally.new(
-    player_id: @player.id
-    )
-    redirect '/'
+  def session_player_2
+    return Player.find(session[:player2]) if session[:player2]
   end 
 
+  def session_player_1
+    return Player.find(session[:player1]) if session[:player1]
+  end 
+
+  # def add_point #rally 
+  #   @match = Match.all
+  #   @rally = Rally.new(
+  #   player_id: @player.id
+  #   )
+  #   redirect '/'
+  # end 
+
+  ##match 
   ##match 
 
   def set_player_1
@@ -87,19 +97,34 @@ post '/login' do
   redirect '/'
 end
 
-###ADD POINT
+###ADD POINT (BRANDONS)
 get '/rallies' do
   @rally = Rally.where(nil)
 end 
 
-post '/rallies/new' do 
+post '/match/rallies/new_player_1_rally' do 
   @match = Match.all
   @rally = Rally.new(
-  player_id: @player.id
+  player_id: session[:player1]
   )
   @rally.save
-  redirect '/'
+  redirect "/rallies/#{@rally.id}"
+  
+end
+
+get '/rallies/:id' do
+  "Hello World"
+end
+
+post '/match/rallies/new_player_2_rally' do 
+  # @match = Match.all
+  # rally = Rally.new(
+  #   player_id: session[:player2]
+  # )
+  # rally.save
+  # redirect '/'
 end 
+
 
 ###LOGOUT 
 get '/logout' do 
@@ -119,7 +144,7 @@ end
 get '/match/:id' do
   @players = Player.all
   @rally = Rally.all
-  erb :'matches/show'
+  erb :'index'
 end
 
 post '/match/create' do
@@ -132,10 +157,13 @@ end
 post '/player1' do
    input = params[:player]
    @player1 =  Player.find(params[:input])
+   session[:player1] = @player1.id  
 end
 
 post '/player2' do
    input = params[:player]
    @player2 =  Player.find(params[:input])
-   
+   @player2.id = session[:player2]
 end
+
+##set two different session keys

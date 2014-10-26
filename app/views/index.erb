@@ -15,11 +15,8 @@
     <% end %>
   </select>
   <button type="submit">Submit</button>
-</form>
 
-
-<form method="post" action="/rallies/add">
-   <input type="submit" value="Add Point" class="btn btn-primary">
+  
 </form>
 
 
@@ -37,11 +34,14 @@
 
 <!-- brandons -->
 <div class="row">
-  <div class="col-md-3"><button type="button" class="btn btn-default btn-lg btn-block">Left</button></div>
-  <div class="col-md-3"><button type="button" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
-  <div class="col-md-3"><button type="button" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
-  <div class="col-md-3"><button type="button" class="btn btn-default btn-lg btn-block">Right</button></div>
+  <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Left</button></div>
+  <form method="post" action="rallies/new_player_1_rally">
+    <div class="col-md-3"><button type="submit" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
+  </form>
+  <div class="col-md-3"><button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
+  <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Right</button></div>
 
+<!-- formaction="/rallies/new_player_1_rally" -->
 <!-- <div class="row">
   <div class="col-md-2">
 <form method="post" action="/user_sessions/<#%= current_user.id %>">
