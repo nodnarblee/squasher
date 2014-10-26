@@ -19,19 +19,7 @@
 
 
 <form method="post" action="/rallies/add">
-    <select name="player1">
-      <% @players.each do |player| %>
-      <option value = "<%= player.id %>"><%= player.first_name %></option>
-    <% end %>
-  </select>
-
-    <select name="player2">
-      <% @players.each do |player| %>
-
-      <option value = "<%= player.id %>"><%= player.first_name %></option>
-    <% end %>
-  </select>
-   <input type="submit" value="Logout" class="btn btn-primary">
+   <input type="submit" value="Add Point" class="btn btn-primary">
 </form>
 
 
