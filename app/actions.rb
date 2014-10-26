@@ -7,13 +7,11 @@ helpers do
   end
 
   def add_point #rally 
-    @player = Player.find_by_first_name(params[:first_name])
+    @match = Match.all
     @rally = Rally.new(
     player_id: @player.id
     )
-      if @rally.save
-        redirect '/'
-      end
+    redirect '/'
   end 
 
   ##match 
@@ -69,6 +67,14 @@ post '/signup' do
     end 
 end 
 
+##LET 
+post '/let' do 
+  @event = Event.new(
+    label: params[:label]
+    ) 
+  @event.save 
+end 
+
 
 ###LOGIN 
 get '/login' do
@@ -82,10 +88,18 @@ post '/login' do
 end
 
 ###ADD POINT
-post '/' do 
-  add_point
+get '/rallies' do
+  @rally = Rally.where(nil)
 end 
 
+post '/rallies/new' do 
+  @match = Match.all
+  @rally = Rally.new(
+  player_id: @player.id
+  )
+  @rally.save
+  redirect '/'
+end 
 
 ###LOGOUT 
 get '/logout' do 
