@@ -1,3 +1,28 @@
+<h1>start match here</h1>
+
+<form method="post" action="/match/create">
+    <select name="player1">
+      <% @players.each do |player| %>
+
+      <option value = "<%= player.id %>"><%= player.first_name %></option>
+    <% end %>
+  </select>
+
+    <select name="player2">
+      <% @players.each do |player| %>
+
+      <option value = "<%= player.id %>"><%= player.first_name %></option>
+    <% end %>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+
+
+<form method="post" action="/rallies/add">
+   <input type="submit" value="Add Point" class="btn btn-primary">
+</form>
+
+
 <!-- <h1>Home Page</h1>
 <h2> SQUASHER </h2>
 
@@ -13,12 +38,35 @@
 <body>
 <h1 class="text-info">Squasher</h1>
 
-<div class="row">
+<!-- brandons -->
+<!-- <div class="row">
   <div class="col-md-3"><button type="button" class="btn btn-default btn-lg btn-block">Left</button></div>
   <div class="col-md-3"><button type="button" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
   <div class="col-md-3"><button type="button" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
-  <div class="col-md-3"><button type="button" class="btn btn-default btn-lg btn-block">Right</button></div>
-</div>
+  <div class="col-md-3"><button type="button" class="btn btn-default btn-lg btn-block">Right</button></div> -->
+
+<!-- <div class="row">
+  <div class="col-md-2">
+<form method="post" action="/user_sessions/<#%= current_user.id %>">
+  <div style="margin:0;padding:0">
+    <input name="_method" type="hidden" value="delete" />
+  </div>
+  <input type="submit" value="Logout" class="btn btn-primary">
+</form>
+
+  
+
+
+  </div> -->
+
+
+<!--   <div class="col-md-5"><button type="button" class="btn btn-primary">Point for Player 1</button></div>
+  <div class="col-md-3"><button type="button" class="btn btn-success">Point for Player 1</button></div>
+  <div class="col-md-2"><button type="button" class="btn btn-warning">Right</button></div>
+
+</div> -->
+
+
 
 <p></p>
 
@@ -108,6 +156,9 @@
         </tr>
     </tbody>
 </table>
+<<<<<<< HEAD
 </body>
 </html>
 >>>>>>> origin/create_models
+=======
+>>>>>>> cf719d3aa2093ea7f89132f8df6dd4ac29a51953

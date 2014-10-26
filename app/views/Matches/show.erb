@@ -1,0 +1,17 @@
+<h1><%= @player.name %></h1>
+
+<p>
+  Points: <%= #number of points %>
+</p>
+
+<hr/>
+<h1> Points by Match </h1>
+<% @player.each do |player| %> 
+  <div class ="points">
+<%= player.games.rallies %> 
+  </div>
+<% end %>
+
+
+<hr/>
+<a href="/">Back to the Match</a>
