@@ -141,7 +141,7 @@ get '/match' do
   erb :'matches/index'
 end
 
-get '/match/:id' do
+get '/:id' do
   @players = Player.all
   @rally = Rally.all
   erb :'index'
@@ -150,7 +150,7 @@ end
 post '/match/create' do
   @match=Match.new(player_1_id: params[:player1], player_2_id: params[:player2])
   if @match.save
-    redirect "/match/#{@match.id}"
+    redirect "/#{@match.id}"
   end
 end
 ## hook up your submit button to the players you just selected

@@ -36,6 +36,8 @@
     </div>
  
     <button type="submit" class="btn btn-default btn-default">Submit</button>
+
+
     
     <!-- alternative to button -->
     <select class="selectpicker" name="player1">
@@ -54,6 +56,23 @@
 		<% end %>
 	</select>
     <!-- alternative to button -->
+
+       <!-- SELECT PLAYER TO SERVE  START-->
+    <div class="btn-group">
+      <button class="btn btn-primary btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+        Select Server<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <% @players.each do |player| %>
+
+        <option value = "<%= player.id %>"><%= player.first_name %></option>
+
+        <% end %>
+      </ul>
+    </div>
+    
+
+    <!-- SELECT PLAYER TO SERVE END -->
 
 </form>
 
