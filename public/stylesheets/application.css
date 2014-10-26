@@ -6,3 +6,9 @@ background: url('http://www.bsn.no/en/wp-content/uploads/2013/09/shutterstock_12
 background-size: cover;
 }
 
+.top-buffer { margin-top:10px; }
+
+.top-buffer1 { margin-top:70px; }
+
+.top-buffer2 { margin-top:40px; }
+

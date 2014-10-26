@@ -74,18 +74,18 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+    <% @rallies.each do |rally| %>
+
+      <option value = "<%= player.id %>"><%= rally.point %></option>
+      <tr>
             <td>1</td>
             <td></td>
             <td></td>
         </tr>
+    <% end %>
+        
         <tr>
             <td>2</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>3</td>
             <td></td>
             <td></td>
         </tr>
