@@ -1,0 +1,8 @@
+body { 
+background: url('http://www.bsn.no/en/wp-content/uploads/2013/09/shutterstock_126711545.jpg') no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
