@@ -113,7 +113,7 @@ post '/match/rallies/new_player_1_rally' do
 end
 
 get '/rallies/:id' do
-  "Hello World"
+  redirect '/'
 end
 
 post '/match/rallies/new_player_2_rally' do 
