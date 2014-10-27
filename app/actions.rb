@@ -3,10 +3,6 @@ enable :sessions
 
 helpers do 
 
-  # def session_user
-  #   return Player.find(session[:id]) if session[:id]
-  # end
-
   def session_player_2
     return Player.find(session[:player2]) if session[:player2]
   end 
@@ -14,19 +10,6 @@ helpers do
   def session_player_1
     return Player.find(session[:player1]) if session[:player1]
   end 
-
-
-
-  # def add_point #rally 
-  #   @match = Match.all
-  #   @rally = Rally.new(
-  #   player_id: @player.id
-  #   )
-  #   redirect '/'
-  # end 
-
-  ##match 
-  ##match 
 
   def set_player_1
     current_player = @player1 
@@ -36,22 +19,20 @@ helpers do
     current_player = @player2
   end 
 
-  def win? 
-    #@player_a = Player.find(params[:id])
-    #@player_a.points
+  def win?
+    @current_match = Match.find(1)
+    @players_rally = Rally.all
+    @player_1_rallies = @players_rally.where(serve_player: "player_1")
+    @player_2_rallies = @players_rally.where(serve_player: "player_2")
+    win = 11 
+    if @player_1_rallies.count >= win && @player_1_rallies.count >= (@player_2_rallies.count + 2)
+      return true
+    elsif @player_2_rallies.count >= win && @player_2_rallies.count >= (@player_1_rallies.count + 2)
+      return true
+    else
+      return false
+    end
 
-    #player_b = Player.find(params[:id])
-    #player_b.points
-
-    @player1 = Player.find(params[:id])
-    @player2 = Player.find(params[:id])
-    @win = 11 
-
-    #11 points to win a game as long as the winning point is at least 11 and greater than opponents points by 2 for that particular game
-
-    # true if (@player1.points == @win && @player1.points > (@player2.points + 2))
-
-    true if (session[:player1].game.rally.count == win && session[:player1].game.rally.count > (session[:player2].game.rally.count + 2))
   end    
 
 end 
@@ -59,6 +40,18 @@ end
 # Homepage (Root path)
 get '/' do
    @players = Player.all
+   @rally = Rally.all
+   @match = Match.all
+   @game = Game.all
+   @current_match = @match.find(1)
+    @player_1_rally = @rally.where(serve_player: "player_1")
+    @player_2_rally = @rally.where(serve_player: "player_2")
+   if @current_match.player_1_id != nil
+     
+     @first_player = Player.find(@current_match.player_1_id)
+     @second_player = Player.find(@current_match.player_2_id)
+    end
+
   erb :index
 end
 
@@ -108,27 +101,31 @@ end
 
 #####PLAYER 1 RALLY 
 post '/rallies/new_player_1_rally' do 
+  @current_match = Match.find(1)
   @rally = Rally.new(
-  player_id: session[:player1],
+  player_id: @current_match.player_1_id,
   game_id: session[:current_game], 
+  serve_player: "player_1",
   player_1_score: 1,
   player_2_score: 0
   )
+  # raly.serve_player
   @rally.save
-  redirect "/rallies/#{@rally.id}"
+  redirect "/"
 end
 
 ##### PLAYER 2 RALLY 
 post '/rallies/new_player_2_rally' do 
+  @current_match = Match.find(1)
   @rally = Rally.new(
-  game_id: session[:player2],
-  player_1_score: + 0,
-  # serve_player: session[:player2].first_name,
-  player_2_score: + 1 
+  player_id: @current_match.player_2_id,
+  game_id: session[:current_game], 
+  serve_player: "player_2",
+  player_1_score: 0,
+  player_2_score: 1
   )
   @rally.save
-  # redirect "/rallies/#{@rally.id}"
-  print session[:player2]
+  redirect "/"
 end 
 
 get '/rallies/:id' do
@@ -146,10 +143,19 @@ end
 ## START MATCH
 
 get '/match' do
+  
+end
+
+post '/match/serve' do #server
   @players = Player.all
   @selected_player1 = session[:player1]
   @selected_player2 = session[:player2]
-  erb :'matches/index'
+  redirect '/'
+
+end 
+get '/match/serve' do
+  erb :'/'
+
 end
 
 get '/:id' do
@@ -159,36 +165,27 @@ get '/:id' do
 end
 
 post '/match/create' do
-  input1 = params[:player_1]
-  @player1 =  Player.find(input1)
-  session[:player1] = @player1
+    input1 = params[:player_1]
+    @player1 =  Player.find(input1)
+    session[:player1] = @player1
 
-  input2 = params[:player_2]
-   @player2 =  Player.find(input2)
+    input2 = params[:player_2]
+    @player2 =  Player.find(input2)
     session[:player2] = @player2
 
-  @match = Match.new(player_id: session[:player1].id, player_id: session[:player2].id)
-  # @match.save
+    @match = Match.find(1)
+    @match.player_1_id = session[:player1].id
+    @match.player_2_id = session[:player2].id
+ 
+    @match.save
+
     if @match.save
-    session[:current_match] = @match
-    # return session[:current_match].player_1_id.to_s
-    redirect "/match"
-
-  #{session[:current_match].player_2_id}  my id : #{session[:current_match].id} 
-    end 
+      # session[:current_match] = @match
+      # # return session[:current_match].player_1_id.to_s
+      # @selected_player1 = session[:player1]
+      # @selected_player2 = session[:player2]
+       redirect "/"
+    end
+    
 end
-## hook up your submit button to the players you just selected
-# post '/player1' do
-#    input = params[:player]
-#    @player1 =  Player.find(params[:input])
-#    session[:player1] = @player1.id
-#    redirect "/#{@player1.id}"  
-# end
 
-# post '/player2' do
-#    input = params[:player]
-#    @player2 =  Player.find(params[:input])
-#    session[:player2] = @player2.id
-# end
-
-##set two different session keys

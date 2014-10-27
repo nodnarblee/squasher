@@ -20,4 +20,7 @@ Player.create(
 	first_name: "don"
 	)
 
+Match.create(
+	)
+
 puts Player.count
