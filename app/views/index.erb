@@ -1,26 +1,7 @@
 
+
 <h1>start match here</h1>
 
-<form method="post" action="/match/create" >
-    <select name="player_1">
-   <option value ='default'>Select Player 1</option>
-      <% @players.each do |player| %>
-      <option value = "<%= player.id %>"><%= player.first_name %></option>
-    <% end %>
-  </select>
-
-
-    <select name="player_2">
-    <option value ='default'>Select Player 2</option>
-      <% @players.each do |player| %>
-      <option value = "<%= player.id %>"><%= player.first_name %></option>
-    <% end %>
-  </select>
-
-
-
-  <button type="submit" class="btn btn-primary">Start Match</button>
-  </form>
 
 <% if @first_player %>
 <form method="post" action="/match/serve" >
@@ -37,13 +18,53 @@
     <h1 class="text-info">YOU WON </h1>
 
 <% end %>
-
+ <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#serve_side_modal">Select side</button>
 <h1 class="text-info">Player 1 score: <%= @player_1_rally.count %> </h1>
 
 <h1 class="text-info">Player 2 score: <%= @player_2_rally.count %> </h1>
 
+<!-- ======= -->
+<div class="page-header">
+<h1>
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="https://www.sportyhq.com/assets/img/sportyhq-w.png">
+      </a>
 
-<h1 class="text-info">Squasher</h1>
+    <!-- <h1 class="text-info">Squasher -->
+
+    
+      
+    <form method="post" action="/match/create" >
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-9">
+            <button type="submit" class="btn btn-danger btn-default btn-block">
+                Start Match <span class="glyphicon glyphicon-flag"></span>
+            </button>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-sm-offset-9">
+            <select name="player_1">
+            <option value ='default'>Select Player 1</option>
+              <% @players.each do |player| %>
+              <option value = "<%= player.id %>"><%= player.first_name %></option>
+            <% end %>
+            </select>
+        
+            <select name="player_2">
+            <option value ='default'>Select Player 2</option>
+              <% @players.each do |player| %>
+              <option value = "<%= player.id %>"><%= player.first_name %></option>
+            <% end %>
+            </select>
+        </div>
+    </div>
+    </form>
+<!-- >>>>>>> origin/frontend4 -->
+
+</h1>
+</div>  
+    
 
 <div class="row top-buffer">
 
@@ -54,16 +75,9 @@
   <form method="post" action="rallies/new_player_2_rally">
     <div class="col-md-6"><button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div></form>
 
- 
-
 </div>
 
-
-
-
-<p></p>
-
-<table class="table table-bordered">
+<table class="table table-bordered table_style">
     <thead>
         <tr>
             <th class="col-md-1">Rally</th>
@@ -72,7 +86,6 @@
         </tr>
     </thead>
     <tbody>
-
 
   <% @rally.each do |rally| %> 
 
@@ -87,12 +100,6 @@
     </tbody>
 </table>
 
-
-
-
-
-
-
 <!-- Button trigger modal -->
 
 
@@ -105,17 +112,11 @@
         <h4 class="modal-title" id="myModalLabel">Select Serve Side</h4>
       </div>
       <div class="modal-body">
-
-
-
  
       <div class="row">
             <button type="button" class="btn btn-info col-sm-4 col-sm-offset-2"> SERVING LEFT</button>
             <button type="button" class="btn btn-warning col-sm-4" >SERVING RIGHT</button>
       </div>
-        
-
-
 
       </div>
       <div class="modal-footer">

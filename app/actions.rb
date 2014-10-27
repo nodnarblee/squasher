@@ -87,6 +87,9 @@ end
 get '/login' do
   erb :'players/login'
 end 
+get '/home' do
+  erb :'players/index'
+end 
 
 post '/login' do
   @player = Player.find_by email:(params[:email])
