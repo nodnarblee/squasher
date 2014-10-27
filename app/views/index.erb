@@ -1,29 +1,43 @@
 
-<h1>start match here</h1>
+<div class="page-header">
+<h1>
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="https://www.sportyhq.com/assets/img/sportyhq-w.png">
+      </a>
 
-<form method="post" action="/match/create" >
-    <select name="player_1">
-   <option value ='default'>Select Player 1</option>
-      <% @players.each do |player| %>
-      <option value = "<%= player.id %>"><%= player.first_name %></option>
-    <% end %>
-  </select>
+    <!-- <h1 class="text-info">Squasher -->
 
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-9">
+            <button type="submit" class="btn btn-danger btn-default btn-block">
+                Start Match <span class="glyphicon glyphicon-flag"></span>
+            </button>
+      </div>
+    </div>
+      
+    <form method="post" action="/match/create" >
+    <div class="row">
+        <div class="col-sm-12 col-sm-offset-9">
+            <select name="player_1">
+            <option value ='default'>Select Player 1</option>
+              <% @players.each do |player| %>
+              <option value = "<%= player.id %>"><%= player.first_name %></option>
+            <% end %>
+            </select>
+        
+            <select name="player_2">
+            <option value ='default'>Select Player 2</option>
+              <% @players.each do |player| %>
+              <option value = "<%= player.id %>"><%= player.first_name %></option>
+            <% end %>
+            </select>
+        </div>
+    </div>
+    </form>
 
-    <select name="player_2">
-    <option value ='default'>Select Player 2</option>
-      <% @players.each do |player| %>
-      <option value = "<%= player.id %>"><%= player.first_name %></option>
-    <% end %>
-  </select>
-
-
-
-  <button type="submit" class="btn btn-primary">Start Match</button>
-  </form>
-
-
-<h1 class="text-info">Squasher</h1>
+</h1>
+</div>  
+    
 
 <div class="row top-buffer">
 
@@ -31,16 +45,13 @@
   <div class="col-md-6"><button type="button" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
   <div class="col-md-6"><button type="button" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
 
- 
-
 </div>
-
-
 
 
 <p></p>
 
-<table class="table table-bordered">
+
+<table class="table table-bordered table_style">
     <thead>
         <tr>
             <th class="col-md-1">Rally</th>
@@ -50,9 +61,11 @@
     </thead>
     <tbody>
 
-
-
-
+        <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
         <tr>
             <td>2</td>
             <td></td>
@@ -120,6 +133,7 @@
         </tr>
     </tbody>
 </table>
+
 
 <form action="/jhtyhfhygfhg" method="post" onsubmit="return executeOnSubmit();">
 <label>Name</label><input type="text" name="name" size="20" id="name" />
