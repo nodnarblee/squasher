@@ -1,14 +1,14 @@
 <h1>start match here</h1>
 
 <form method="post" action="/match/create">
-    <select name="player1">
+    <select name="player_1">
       <% @players.each do |player| %>
 
       <option value = "<%= player.id %>"><%= player.first_name %></option>
     <% end %>
   </select>
 
-    <select name="player2">
+    <select name="player_2">
       <% @players.each do |player| %>
 
       <option value = "<%= player.id %>"><%= player.first_name %></option>
@@ -45,10 +45,13 @@
 <!-- brandons -->
 <div class="row">
   <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Left</button></div>
+
   <form method="post" action="rallies/new_player_1_rally">
-    <div class="col-md-3"><button type="submit" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
-  </form>
-  <div class="col-md-3"><button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
+    <div class="col-md-3"><button type="submit" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div></form>
+
+  <form method="post" action="rallies/new_player_2_rally">
+    <div class="col-md-3"><button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div></form>
+
   <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Right</button></div>
 
 <!-- formaction="/rallies/new_player_1_rally" -->
@@ -84,16 +87,16 @@
         </tr>
     </thead>
     <tbody>
-    <% @rallies.each do |rally| %>
+<!--     <% #@rallies.each do |rally| %> -->
 
-      <option value = "<%= player.id %>"><%= rally.point %></option>
-      <tr>
+<!--       <option value = "<#%= player.id %>"><#%= rally.point %></option>
+      <tr> 
             <td>1</td>
             <td></td>
             <td></td>
         </tr>
-    <% end %>
-        
+    <#% end %>
+        -->
         <tr>
             <td>2</td>
             <td></td>

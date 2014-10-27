@@ -19,14 +19,17 @@ ActiveRecord::Schema.define(version: 20141022231001) do
   end
 
   create_table "games", force: true do |t|
-    t.string   "match_id"
+    t.integer  "match_id"
+    t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "matches", force: true do |t|
-    t.string   "player_1_id"
-    t.string   "player_2_id"
+    t.integer  "player_1_id"
+    t.integer  "player_2_id"
+    t.integer  "player_id"
+    t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,18 +40,24 @@ ActiveRecord::Schema.define(version: 20141022231001) do
     t.string   "email"
     t.string   "password"
     t.string   "right_left_handed"
+    t.integer  "matches_id"
+    t.integer  "game_id"
+    t.integer  "rallies_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "rallies", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "game_id"
+    t.integer  "player_id"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string   "player_id"
+    t.integer  "player_1_score"
+    t.integer  "player_2_score"
     t.string   "serve_player"
     t.string   "serve_side"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
