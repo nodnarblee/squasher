@@ -1,3 +1,4 @@
+
 <h1>start match here</h1>
 <!-- <a href="delete.php" onclick="return confirm('Are you sure you want to delete this item?');">delete</a> -->
 
@@ -32,9 +33,12 @@
   </select>
 
 
+<h1 class="text-info">START MATCH HERE!</h1>
+
+
 <form method="post" action="/match/create">
     
-    <div class="btn-group col-sm-2 col-sm-offset-1">
+    <div class="btn-group col-sm-2">
       <button class="btn btn-primary btn-lg btn-block dropdown-toggle" type="button" data-toggle="dropdown">
         player1<span class="caret"></span>
       </button>
@@ -55,15 +59,37 @@
       </button>
       <ul class="dropdown-menu" role="menu">
         <% @players.each do |player| %>
-=======
->>>>>>> origin/create_game3
-
 
 <!-- <form method="post" action="/rallies/add">
    <input type="submit" value="Add Point" class="btn btn-primary">
 </form> -->
 
 
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- SELECT PLAYER TO SERVE  START-->
+    <div class="btn-group col-sm-2">
+      <button class="btn btn-default btn-lg btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+        Select Server<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <% @players.each do |player| %>
+
+        <option value = "<%= player.id %>"><%= player.first_name %></option>
+
+        <% end %>
+      </ul>
+    </div>
+    
+
+
+    <!-- SELECT PLAYER TO SERVE END -->
+ 
+    <div class="btn-group col-sm-2">
+      <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
+    </div>
 
 <!-- <h1>Home Page</h1>
 <h2> SQUASHER </h2>
@@ -128,6 +154,15 @@
             <td></td>
         </tr>
     <#% #end %> -->
+
+    <!-- <select class="selectpicker" name="player1">
+          	<#% @players.each do |player| %>
+
+              <option value = "<#%= player.id %>"><#%= player.first_name %></option>
+
+      		<#% end %>
+      	</select>
+
         
         <tr>
             <td>2</td>
@@ -197,10 +232,19 @@
     </tbody>
 </table>
 
+
 <form action="/jhtyhfhygfhg" method="post" onsubmit="return executeOnSubmit();">
 <label>Name</label><input type="text" name="name" size="20" id="name" />
 <input type="submit" name="submit" value="submit" />
 </form>
+
+
+          <select class="selectpicker" name="player2">
+          	<#% @players.each do |player| %>
+
+          	<option value = "<#%= player.id %>"><#%= player.first_name %></option>
+      		<#% end %>
+      	</select> -->
 
 
 
@@ -249,6 +293,9 @@
 
 
 
+
+
+</form>
 
 
 
