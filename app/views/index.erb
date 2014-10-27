@@ -22,14 +22,37 @@
   <button type="submit" class="btn btn-primary">Start Match</button>
   </form>
 
+<% if @first_player %>
+<form method="post" action="/match/serve" >
+   <select name="ServeFirst" id="ServeFirst">
+      <option value ='default'>Select Game 1 Server</option>
+      <option value = "<%= @first_player.id %>"><%= @first_player.first_name %></option>
+      <option value = "<%= @second_player.id %>"><%= @second_player.first_name %></option>
+
+  </select>
+
+</form>
+<% end %>
+<% if win? %>
+    <h1 class="text-info">YOU WON </h1>
+
+<% end %>
+
+<h1 class="text-info">Player 1 score: <%= @player_1_rally.count %> </h1>
+
+<h1 class="text-info">Player 2 score: <%= @player_2_rally.count %> </h1>
+
 
 <h1 class="text-info">Squasher</h1>
 
 <div class="row top-buffer">
 
 
-  <div class="col-md-6"><button type="button" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
-  <div class="col-md-6"><button type="button" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
+  <form method="post" action="rallies/new_player_1_rally">
+    <div class="col-md-6"><button type="submit" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div></form>
+
+  <form method="post" action="rallies/new_player_2_rally">
+    <div class="col-md-6"><button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div></form>
 
  
 
@@ -51,80 +74,22 @@
     <tbody>
 
 
+  <% @rally.each do |rally| %> 
 
+        <tr>
 
-        <tr>
-            <td>2</td>
-            <td></td>
-            <td></td>
+            <td><%= rally.id %></td>
+            <td><%= rally.player_1_score %></td>
+            <td><%= rally.player_2_score %></td>
         </tr>
-        <tr>
-            <td>3</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>11</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>12</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>13</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>14</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>15</td>
-            <td></td>
-            <td></td>
-        </tr>
+    <% end %>
+
     </tbody>
 </table>
 
-<form action="/jhtyhfhygfhg" method="post" onsubmit="return executeOnSubmit();">
-<label>Name</label><input type="text" name="name" size="20" id="name" />
-<input type="submit" name="submit" value="submit" />
-</form>
+
+
+
 
 
 
