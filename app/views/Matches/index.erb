@@ -1,80 +1,235 @@
-<h1 class="text-info col-sm-offset-1">START MATCH HERE!</h1>
+<h1>start match here</h1>
+<!-- <a href="delete.php" onclick="return confirm('Are you sure you want to delete this item?');">delete</a> -->
 
-<form method="post" action="/match/create">
-    
-    <div class="btn-group col-sm-2 col-sm-offset-1">
-      <button class="btn btn-primary btn-lg btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-        Player 1 <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <% @players.each do |player| %>
+    <!-- <select name="player1">
+   <option value ='default'>Select Player 1</option>
+      <#% @players.each do |player| %>
+      <option value = "<%= player.id %>"><%= player.first_name %></option>
+    <#% end %>
+  </select> -->
 
-        <option value = "<%= player.id %>"><%= player.first_name %></option>
+      <!-- <select name="player2">
+    <option value ='default'>Select Player 2</option>
+      <#% @players.each do |player| %>
 
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="btn-group col-sm-2">
-      <button class="btn btn-success btn-lg btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-        Player 2 <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <% @players.each do |player| %>
-
-        <option value = "<%= player.id %>"><%= player.first_name %></option>
-
-        <% end %>
-      </ul>
-    </div>
- 
-
-    <button type="submit" class="btn btn-default btn-default">Submit</button>
+      <option value = "<%= player.id %>"><%= player.first_name %></option>
+    <#% end %>
+  </select>
+ -->
+  replace this with a label
+  <#% player1.name %>
+  <#% player2.name %>
 
 
-    
 
-   <!--  <button type="submit" class="btn btn-lg btn-default">Submit</button> -->
-      
-
-    <!-- alternative to button -->
-
-    <!-- <select class="selectpicker" name="player1">
-          	<% @players.each do |player| %>
-
-              <option value = "<%= player.id %>"><%= player.first_name %></option>
-
-      		<% end %>
-      	</select>
+<form method="post" action="/match/create" >
+   <select name="ServeFirst" id="ServeFirst">
+      <option value ='default'>Select Game 1 Server</option>
+      <% @selected_players.each do |player| %>
+      <option value = "<%= player.id %>"><%= player.first_name %></option>
         
+    <% end %>
+  </select>
 
-          <select class="selectpicker" name="player2">
-          	<% @players.each do |player| %>
-
-          	<option value = "<%= player.id %>"><%= player.first_name %></option>
-      		<% end %>
-      	</select> -->
-
-    <!-- alternative to button -->
-
-       <!-- SELECT PLAYER TO SERVE  START-->
-    <div class="btn-group">
-      <button class="btn btn-primary btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-        Select Server<span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <% @players.each do |player| %>
-
-        <option value = "<%= player.id %>"><%= player.first_name %></option>
-
-        <% end %>
-      </ul>
-    </div>
-    
-
-    <!-- SELECT PLAYER TO SERVE END -->
+<!--   <button type="submit" class="btn btn-primary">Start Match</button> -->
+  <button type="submit" data-toggle="modal" data-target="#serve_side_modal" class="btn btn-primary">Serve Side</button>
 
 </form>
+
+
+
+
+<!-- <form method="post" action="/rallies/add">
+   <input type="submit" value="Add Point" class="btn btn-primary">
+</form> -->
+
+
+
+<!-- <h1>Home Page</h1>
+<h2> SQUASHER </h2>
+
+<h2><a href="/login">Login!</a></h2>
+<h2><a href="/logout">Logout!</a></h2>
+<h2><a href="/signup">Sign Up</a></h2>
+ -->
+
+       
+
+<h1 class="text-info">Squasher</h1>
+
+<!-- brandons -->
+<div class="row">
+  <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Left</button></div>
+  <form method="post" action="rallies/new_player_1_rally">
+    <div class="col-md-3"><button type="submit" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
+  </form>
+  <div class="col-md-3"><button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
+  <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Right</button></div>
+
+<!-- formaction="/rallies/new_player_1_rally" -->
+<!-- <div class="row">
+  <div class="col-md-2">
+<form method="post" action="/user_sessions/<#%= current_user.id %>">
+  <div style="margin:0;padding:0">
+    <input name="_method" type="hidden" value="delete" />
+  </div>
+  <input type="submit" value="Logout" class="btn btn-primary">
+</form> -->
+
+
+</div>
+
+
+<!--   <div class="col-md-5"><button type="button" class="btn btn-primary">Point for Player 1</button></div>
+  <div class="col-md-3"><button type="button" class="btn btn-success">Point for Player 1</button></div>
+  <div class="col-md-2"><button type="button" class="btn btn-warning">Right</button></div>
+
+</div> -->
+
+
+
+<p></p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="col-md-1">Rally</th>
+            <th class="col-md-5">Player 1: Score</th>
+            <th class="col-md-6">Player 2: Score</th>
+        </tr>
+    </thead>
+    <tbody>
+   <!-- <#% @rallies.each #do |rally| %>
+
+      <option value = "<#%= player.id %>"><#%= rally.point %></option>
+      <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
+    <#% #end %> -->
+        
+        <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<form action="/jhtyhfhygfhg" method="post" onsubmit="return executeOnSubmit();">
+<label>Name</label><input type="text" name="name" size="20" id="name" />
+<input type="submit" name="submit" value="submit" />
+</form>
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="serve_side_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Select Serve Side</h4>
+      </div>
+      <div class="modal-body">
+
+
+
+ 
+      <div class="row">
+            <button type="button" class="btn btn-info col-sm-4 col-sm-offset-2"> SERVING LEFT</button>
+            <button type="button" class="btn btn-warning col-sm-4" >SERVING RIGHT</button>
+      </div>
+        
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

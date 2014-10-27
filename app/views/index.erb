@@ -1,27 +1,36 @@
 <h1>start match here</h1>
-
-<form method="post" action="/match/create">
+<!-- <a href="delete.php" onclick="return confirm('Are you sure you want to delete this item?');">delete</a> -->
+<form method="post" action="/match/create" >
     <select name="player1">
+   <option value ='default'>Select Player 1</option>
       <% @players.each do |player| %>
-
       <option value = "<%= player.id %>"><%= player.first_name %></option>
     <% end %>
   </select>
 
     <select name="player2">
+    <option value ='default'>Select Player 2</option>
       <% @players.each do |player| %>
 
       <option value = "<%= player.id %>"><%= player.first_name %></option>
     <% end %>
   </select>
 
-  <button type="submit">Submit</button>
+   <select name="ServeFirst" id="ServeFirst">
+      <option value ='default'>Select Game 1 Server</option>
+      <% @players.each do |player| %>
+      <option value = "<%= player.id %>"><%= player.first_name %></option>
+        
+    <% end %>
+  </select>
+
+  <button type="submit" class="btn btn-primary">Start Match</button>
+  <button type="submit" data-toggle="modal" data-target="#serve_side_modal" class="btn btn-primary">Serve Side</button>
 
   
 </form>
 
-  <button type="submit">Start Match</button>
-</form>
+
 
 
 <!-- <form method="post" action="/rallies/add">
@@ -84,15 +93,15 @@
         </tr>
     </thead>
     <tbody>
-    <% @rallies.each do |rally| %>
+   <!-- <#% @rallies.each #do |rally| %>
 
-      <option value = "<%= player.id %>"><%= rally.point %></option>
+      <option value = "<#%= player.id %>"><#%= rally.point %></option>
       <tr>
             <td>1</td>
             <td></td>
             <td></td>
         </tr>
-    <% end %>
+    <#% #end %> -->
         
         <tr>
             <td>2</td>
@@ -162,4 +171,42 @@
     </tbody>
 </table>
 
+<form action="/jhtyhfhygfhg" method="post" onsubmit="return executeOnSubmit();">
+<label>Name</label><input type="text" name="name" size="20" id="name" />
+<input type="submit" name="submit" value="submit" />
+</form>
 
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="serve_side_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Select Serve Side</h4>
+      </div>
+      <div class="modal-body">
+
+
+
+ 
+      <div class="row">
+            <button type="button" class="btn btn-info col-sm-4 col-sm-offset-2"> SERVING LEFT</button>
+            <button type="button" class="btn btn-warning col-sm-4" >SERVING RIGHT</button>
+      </div>
+        
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
