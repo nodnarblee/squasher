@@ -1,152 +1,40 @@
-<<<<<<< HEAD
+
 <h1>start match here</h1>
-<<<<<<< HEAD
 
-<form method="post" action="/match/create">
-    <select name="player_1">
-=======
-<!-- <a href="delete.php" onclick="return confirm('Are you sure you want to delete this item?');">delete</a> -->
 <form method="post" action="/match/create" >
-    <select name="player1">
+    <select name="player_1">
    <option value ='default'>Select Player 1</option>
->>>>>>> origin/create_game3
       <% @players.each do |player| %>
       <option value = "<%= player.id %>"><%= player.first_name %></option>
     <% end %>
   </select>
 
-<<<<<<< HEAD
+
     <select name="player_2">
-=======
-    <select name="player2">
     <option value ='default'>Select Player 2</option>
->>>>>>> origin/create_game3
       <% @players.each do |player| %>
-
       <option value = "<%= player.id %>"><%= player.first_name %></option>
     <% end %>
   </select>
 
-   <select name="ServeFirst" id="ServeFirst">
-      <option value ='default'>Select Game 1 Server</option>
-      <% @players.each do |player| %>
-      <option value = "<%= player.id %>"><%= player.first_name %></option>
-        
-    <% end %>
-  </select>
+
 
   <button type="submit" class="btn btn-primary">Start Match</button>
-  <button type="submit" data-toggle="modal" data-target="#serve_side_modal" class="btn btn-primary">Serve Side</button>
-=======
+  </form>
+
+
 <h1 class="text-info">Squasher</h1>
 
-<form method="post" action="/match/create">
-    <div class="row">
-        <div class="col-md-2">
-            <div>Select Player 1:</div>
-            <select name="player1">
-                <% @players.each do |player| %>
-                    <option value = "<%= player.id %>"><%= player.first_name %></option>
-                <% end %>
-            </select>
-        </div>
-   
-
-        <div class="col-md-2">
-            <div>Select Player 2:</div>
-            <select name="player2">
-                <% @players.each do |player| %>
-                    <option value = "<%= player.id %>"><%= player.first_name %></option>
-                <% end %>
-            </select>
-        </div>
-
-        <div class="col-md-2">
-            <div>Select Server:</div>
-            <select name="server">
-                <% @players.each do |player| %>
-                    <option value = "<%= player.id %>"><%= player.first_name %></option>
-                <% end %>
-            </select>
-        </div>
-
-    </div>
-
-    <div class="row top-buffer2">
-        
-        <div class="btn-group col-sm-6">
-            <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
-        </div>
-
-        <div class="btn-group col-sm-6">
-            <button type="submit" class="btn btn-default btn-lg btn-block">Select Server</button>
-        </div>
-    </div>
->>>>>>> origin/frontend3
-
-
-<<<<<<< HEAD
-
-=======
-</form>
->>>>>>> origin/frontend3
-
-
-<!-- <form method="post" action="/rallies/add">
-   <input type="submit" value="Add Point" class="btn btn-primary">
-</form> -->
-
-
-<!-- <h1>Home Page</h1>
-<h2> SQUASHER </h2>
-
-<h2><a href="/login">Login!</a></h2>
-<h2><a href="/logout">Logout!</a></h2>
-<h2><a href="/signup">Sign Up</a></h2>
- -->
-
-
-<!-- brandons -->
-<<<<<<< HEAD
-<div class="row">
-  <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Left</button></div>
-
-  <form method="post" action="rallies/new_player_1_rally">
-    <div class="col-md-3"><button type="submit" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div></form>
-
-  <form method="post" action="rallies/new_player_2_rally">
-    <div class="col-md-3"><button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div></form>
-
-  <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Right</button></div>
-
-<!-- formaction="/rallies/new_player_1_rally" -->
-=======
 <div class="row top-buffer">
-  <!-- <div class="col-md-3"><button type="button" class="btn btn-default btn-lg btn-block">Left</button></div> -->
+
 
   <div class="col-md-6"><button type="button" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
   <div class="col-md-6"><button type="button" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
 
-  <!-- <div class="col-md-3"><button type="button" class="btn btn-default btn-lg btn-block">Right</button></div> -->
-
->>>>>>> origin/frontend3
-<!-- <div class="row">
-  <div class="col-md-2">
-<form method="post" action="/user_sessions/<#%= current_user.id %>">
-  <div style="margin:0;padding:0">
-    <input name="_method" type="hidden" value="delete" />
-  </div>
-  <input type="submit" value="Logout" class="btn btn-primary">
-</form> -->
+ 
 
 </div>
 
-
-<!--   <div class="col-md-5"><button type="button" class="btn btn-primary">Point for Player 1</button></div>
-  <div class="col-md-3"><button type="button" class="btn btn-success">Point for Player 1</button></div>
-  <div class="col-md-2"><button type="button" class="btn btn-warning">Right</button></div>
-
-</div> -->
 
 
 
@@ -163,31 +51,7 @@
     <tbody>
 
 
-<!--     <% #@rallies.each do |rally| %> -->
 
-<!--       <option value = "<#%= player.id %>"><#%= rally.point %></option>
-      <tr> 
-
-   <#% @rallies.each #do |rally| %>
-
-      <option value = "<#%= player.id %>"><#%= rally.point %></option>
-      <tr>
-
-
-   <#% @rallies.each do |rally| %>
-
-      <option value = "<#%= player.id %>"><#%= rally.point %></option>
-        s<tr>
-
-            <td>1</td>
-            <td></td>
-            <td></td>
-        </tr>
-
-
-
-
-    <#% end %> -->
 
         <tr>
             <td>2</td>

@@ -147,6 +147,8 @@ end
 
 get '/match' do
   @players = Player.all
+  @selected_player1 = session[:player1]
+  @selected_player2 = session[:player2]
   erb :'matches/index'
 end
 
@@ -170,7 +172,7 @@ post '/match/create' do
     if @match.save
     session[:current_match] = @match
     # return session[:current_match].player_1_id.to_s
-    redirect "/#{@match.id}"
+    redirect "/match"
 
   #{session[:current_match].player_2_id}  my id : #{session[:current_match].id} 
     end 
