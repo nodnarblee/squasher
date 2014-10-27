@@ -20,7 +20,18 @@ header { url(https://www.sportyhq.com/assets/img/sportyhq-w.png)}
 
 .table_style {
   background: rgba(76,31,0, 0.4);
+  margin-bottom:30px;
+  margin-top:10px;
+}
 
+.footer-2 {
+  margin-bottom:30px;
+  margin-top:50px !important;
+
+}
+
+element.style {
+margin-top: 30px !important;
 }
 
 

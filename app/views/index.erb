@@ -1,28 +1,9 @@
 
 
-<h1>start match here</h1>
-
-
-<% if @first_player %>
-<form method="post" action="/match/serve" >
-   <select name="ServeFirst" id="ServeFirst">
-      <option value ='default'>Select Game 1 Server</option>
-      <option value = "<%= @first_player.id %>"><%= @first_player.first_name %></option>
-      <option value = "<%= @second_player.id %>"><%= @second_player.first_name %></option>
-
-  </select>
-
-</form>
-<% end %>
 <% if win? %>
     <h1 class="text-info">YOU WON </h1>
 
 <% end %>
- <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#serve_side_modal">Select side</button>
-<h1 class="text-info">Player 1 score: <%= @player_1_rally.count %> </h1>
-
-<h1 class="text-info">Player 2 score: <%= @player_2_rally.count %> </h1>
-
 <!-- ======= -->
 <div class="page-header">
 <h1>
@@ -36,14 +17,17 @@
       
     <form method="post" action="/match/create" >
     <div class="row">
+    
       <div class="col-sm-3 col-sm-offset-9">
             <button type="submit" class="btn btn-danger btn-default btn-block">
                 Start Match <span class="glyphicon glyphicon-flag"></span>
             </button>
+                <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#serve_side_modal">Select side</button>
       </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-sm-offset-9">
+
+        <div class="col-sm-3 col-sm-offset-9">
             <select name="player_1">
             <option value ='default'>Select Player 1</option>
               <% @players.each do |player| %>
@@ -57,6 +41,17 @@
               <option value = "<%= player.id %>"><%= player.first_name %></option>
             <% end %>
             </select>
+            <% if @first_player %>
+<form method="post" action="/match/serve" >
+   <select name="ServeFirst" id="ServeFirst">
+      <option value ='default'>Select Game 1 Server</option>
+      <option value = "<%= @first_player.id %>"><%= @first_player.first_name %></option>
+      <option value = "<%= @second_player.id %>"><%= @second_player.first_name %></option>
+
+  </select>
+
+</form>
+<% end %>
         </div>
     </div>
     </form>
@@ -70,10 +65,15 @@
 
 
   <form method="post" action="rallies/new_player_1_rally">
-    <div class="col-md-6"><button type="submit" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div></form>
+  
+    <div class="col-md-6">
+    <h3 class="text-info">Player 1 score: <%= @player_1_rally.count %> </h3>
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div></form>
 
   <form method="post" action="rallies/new_player_2_rally">
-    <div class="col-md-6"><button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div></form>
+    <div class="col-md-6">
+    <h3 class="text-info">Player 2 score: <%= @player_2_rally.count %> </h3>
+    <button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div></form>
 
 </div>
 
