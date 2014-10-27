@@ -9,44 +9,41 @@
   </div>
 <% end %>
 
-<form method = "post" action ="/login">
-<form class="form-horizontal" role="form">
-  <div>
-    <h1 class="text-info col-sm-offset-1"> PLEASE LOGIN HERE! </h1>
+<form method = "post" action ="/login" class="form-horizontal" role="form">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-info">PLEASE LOGIN HERE!</h1>
+    </div>
   </div>
 
   <div class="row">
-  <div class="form-group">
-    <label for="Email" class="col-sm-1 col-sm-offset-1 control-label">Email:</label>
-    <div class="col-sm-4">
-      <input type="email" class="form-control" id="Email" placeholder="Email" "col-sm-6">
+    <div class="form-group top-buffer">
+      <label for="Email" class="col-sm-1 control-label">Email:</label>
+      <div class="col-sm-4">
+        <input type="email" class="form-control" id="Email" placeholder="Email">
+      </div>
     </div>
   </div>
-  </div>
-
-  <div class="row top-buffer"></div>
 
   <div class="row">
-  <div class="form-group">
-    <label for="Password" class="col-sm-1 col-sm-offset-1 control-label">Password:</label>
-    <div class="col-sm-4">
-      <input type="password" class="form-control" id="Password" placeholder="Password">
+    <div class="form-group top-buffer">
+      <label for="Password" class="col-sm-1 control-label">Password:</label>
+      <div class="col-sm-4">
+        <input type="password" class="form-control" id="Password" placeholder="Password">
+      </div>
     </div>
   </div>
-  </div>
-
-  <div class="row top-buffer2"></div>
   
   <div class="row">
-  <div class="form-group">
-    <div class="col-sm-11 col-sm-offset-2">
-      <button type="submit" value="Login" class="btn btn-default">Sign in</button>
+    <div class="form-group top-buffer">
+      <div class="col-sm-11 col-sm-offset-1">
+        <button type="submit" value="Login" class="btn btn-default">Sign in</button>
+      </div>
     </div>
-  </div>
   </div>
 
 </form>
-</form>
+
 
 
 

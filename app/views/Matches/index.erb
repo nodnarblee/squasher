@@ -1,8 +1,8 @@
-<h1 class="text-info col-sm-offset-1">START MATCH HERE!</h1>
+<h1 class="text-info">START MATCH HERE!</h1>
 
 <form method="post" action="/match/create">
     
-    <div class="btn-group col-sm-2 col-sm-offset-1">
+    <div class="btn-group col-sm-2">
       <button class="btn btn-primary btn-lg btn-block dropdown-toggle" type="button" data-toggle="dropdown">
         Player 1 <span class="caret"></span>
       </button>
@@ -27,39 +27,10 @@
         <% end %>
       </ul>
     </div>
- 
 
-    <button type="submit" class="btn btn-default btn-default">Submit</button>
-
-
-    
-
-   <!--  <button type="submit" class="btn btn-lg btn-default">Submit</button> -->
-      
-
-    <!-- alternative to button -->
-
-    <!-- <select class="selectpicker" name="player1">
-          	<% @players.each do |player| %>
-
-              <option value = "<%= player.id %>"><%= player.first_name %></option>
-
-      		<% end %>
-      	</select>
-        
-
-          <select class="selectpicker" name="player2">
-          	<% @players.each do |player| %>
-
-          	<option value = "<%= player.id %>"><%= player.first_name %></option>
-      		<% end %>
-      	</select> -->
-
-    <!-- alternative to button -->
-
-       <!-- SELECT PLAYER TO SERVE  START-->
-    <div class="btn-group">
-      <button class="btn btn-primary btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+    <!-- SELECT PLAYER TO SERVE  START-->
+    <div class="btn-group col-sm-2">
+      <button class="btn btn-default btn-lg btn-block dropdown-toggle" type="button" data-toggle="dropdown">
         Select Server<span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
@@ -73,6 +44,35 @@
     
 
     <!-- SELECT PLAYER TO SERVE END -->
+ 
+    <div class="btn-group col-sm-2">
+      <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
+    </div>
+
+    
+
+   <!--  <button type="submit" class="btn btn-lg btn-default">Submit</button> -->
+      
+
+    <!-- alternative to button -->
+
+    <!-- <select class="selectpicker" name="player1">
+          	<#% @players.each do |player| %>
+
+              <option value = "<#%= player.id %>"><#%= player.first_name %></option>
+
+      		<#% end %>
+      	</select>
+        
+
+          <select class="selectpicker" name="player2">
+          	<#% @players.each do |player| %>
+
+          	<option value = "<#%= player.id %>"><#%= player.first_name %></option>
+      		<#% end %>
+      	</select> -->
+
+    <!-- alternative to button -->
 
 </form>
 

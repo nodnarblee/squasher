@@ -1,33 +1,55 @@
-<h1>start match here</h1>
+<h1 class="text-info">Squasher</h1>
 
 <form method="post" action="/match/create">
-    <select name="player1">
-      <% @players.each do |player| %>
+    <div class="row">
+        <div class="col-md-2">
+            <div>Select Player 1:</div>
+            <select name="player1">
+                <% @players.each do |player| %>
+                    <option value = "<%= player.id %>"><%= player.first_name %></option>
+                <% end %>
+            </select>
+        </div>
+   
 
-      <option value = "<%= player.id %>"><%= player.first_name %></option>
-    <% end %>
-  </select>
+        <div class="col-md-2">
+            <div>Select Player 2:</div>
+            <select name="player2">
+                <% @players.each do |player| %>
+                    <option value = "<%= player.id %>"><%= player.first_name %></option>
+                <% end %>
+            </select>
+        </div>
 
-    <select name="player2">
-      <% @players.each do |player| %>
+        <div class="col-md-2">
+            <div>Select Server:</div>
+            <select name="server">
+                <% @players.each do |player| %>
+                    <option value = "<%= player.id %>"><%= player.first_name %></option>
+                <% end %>
+            </select>
+        </div>
 
-      <option value = "<%= player.id %>"><%= player.first_name %></option>
-    <% end %>
-  </select>
+    </div>
 
-  <button type="submit">Submit</button>
+    <div class="row top-buffer2">
+        
+        <div class="btn-group col-sm-6">
+            <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
+        </div>
 
-  
-</form>
+        <div class="btn-group col-sm-6">
+            <button type="submit" class="btn btn-default btn-lg btn-block">Select Server</button>
+        </div>
+    </div>
 
-  <button type="submit">Start Match</button>
+
 </form>
 
 
 <!-- <form method="post" action="/rallies/add">
    <input type="submit" value="Add Point" class="btn btn-primary">
 </form> -->
-
 
 
 <!-- <h1>Home Page</h1>
@@ -38,20 +60,16 @@
 <h2><a href="/signup">Sign Up</a></h2>
  -->
 
-       
-
-<h1 class="text-info">Squasher</h1>
 
 <!-- brandons -->
-<div class="row">
-  <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Left</button></div>
-  <form method="post" action="rallies/new_player_1_rally">
-    <div class="col-md-3"><button type="submit" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
-  </form>
-  <div class="col-md-3"><button type="submit" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
-  <div class="col-md-3"><button type="submit" class="btn btn-default btn-lg btn-block">Right</button></div>
+<div class="row top-buffer">
+  <!-- <div class="col-md-3"><button type="button" class="btn btn-default btn-lg btn-block">Left</button></div> -->
 
-<!-- formaction="/rallies/new_player_1_rally" -->
+  <div class="col-md-6"><button type="button" class="btn btn-primary btn-lg btn-block">Point for Player 1</button></div>
+  <div class="col-md-6"><button type="button" class="btn btn-success btn-lg btn-block">Point for Player 2</button></div>
+
+  <!-- <div class="col-md-3"><button type="button" class="btn btn-default btn-lg btn-block">Right</button></div> -->
+
 <!-- <div class="row">
   <div class="col-md-2">
 <form method="post" action="/user_sessions/<#%= current_user.id %>">
@@ -60,7 +78,6 @@
   </div>
   <input type="submit" value="Logout" class="btn btn-primary">
 </form> -->
-
 
 </div>
 
@@ -84,15 +101,15 @@
         </tr>
     </thead>
     <tbody>
-    <% @rallies.each do |rally| %>
+ <!--    <#% @rallies.each do |rally| %>
 
-      <option value = "<%= player.id %>"><%= rally.point %></option>
-      <tr>
+      <option value = "<#%= player.id %>"><#%= rally.point %></option>
+        s<tr>
             <td>1</td>
             <td></td>
             <td></td>
         </tr>
-    <% end %>
+    <#% end %> -->
         
         <tr>
             <td>2</td>
